@@ -1,18 +1,32 @@
+import { NavLink, Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
+  const linkClass = ({ isActive }) =>
+    isActive ? "navbar-link navbar-link-active" : "navbar-link";
+
   return (
     <header className="navbar">
-      <div className="navbar-brand">
-        Full Combat
-      </div>
+      <Link className="navbar-brand" to="/">
+        FULL COMBAT
+      </Link>
 
       <nav className="navbar-links">
-        <a href="#">Marcadoras eléctricas</a>
-        <a href="#">Marcadoras a gas</a>
-        <a href="#">Miras</a>
-        <a href="#">Insumos</a>
-        <a href="#">Indumentaria</a>
+        <NavLink className={linkClass} to="/category/marcadoras-electricas">
+          Marcadoras eléctricas
+        </NavLink>
+        <NavLink className={linkClass} to="/category/marcadoras-gas">
+          Marcadoras a gas
+        </NavLink>
+        <NavLink className={linkClass} to="/category/miras">
+          Miras
+        </NavLink>
+        <NavLink className={linkClass} to="/category/insumos">
+          Insumos
+        </NavLink>
+        <NavLink className={linkClass} to="/category/indumentaria">
+          Indumentaria
+        </NavLink>
       </nav>
 
       <CartWidget />
